@@ -1,0 +1,9 @@
+metric,hpa_baseline_expected,hybrid_expected,unit,evidence_status,source_note
+average_response_time,320,235,ms,EXPECTED_NOT_MEASURED,Expected values retained from the thesis presentation; original successful-run CSV is unavailable
+p95_response_time,630,300,ms,EXPECTED_NOT_MEASURED,Expected values retained from the thesis presentation; original successful-run CSV is unavailable
+maximum_response_time,680,325,ms,EXPECTED_NOT_MEASURED,Expected values retained from the thesis presentation; original successful-run CSV is unavailable
+scale_reaction_time,35,12,seconds,EXPECTED_NOT_MEASURED,Expected values retained from the thesis presentation; must be remeasured before use as a verified result
+cold_start_time,8,3,seconds,EXPECTED_NOT_MEASURED,Expected values retained from the thesis presentation; must be remeasured before use as a verified result
+average_cpu_utilization,24.5,19.2,percent,EXPECTED_NOT_MEASURED,Approximate expected values read from the thesis presentation chart
+average_replicas,2.5,2.5,count,EXPECTED_NOT_MEASURED,Approximate expected values read from the thesis presentation chart
+maximum_replicas,5,4,count,EXPECTED_NOT_MEASURED,Expected values retained from the thesis presentation; original successful-run logs are unavailable

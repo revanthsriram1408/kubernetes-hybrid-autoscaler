@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hybrid-demo-app
+  namespace: autoscaler-demo
+  labels:
+    app: hybrid-demo-app
+spec:
+  namespaceSelector:
+    matchNames:
+      - autoscaler-demo
+  selector:
+    matchLabels:
+      app: hybrid-demo-app
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 5s

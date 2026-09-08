@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hybrid-demo-app
+  namespace: autoscaler-demo
+  labels:
+    app: hybrid-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hybrid-demo-app
+  template:
+    metadata:
+      labels:
+        app: hybrid-demo-app
+    spec:
+      containers:
+        - name: app
+          image: hybrid-demo-app:local
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 8000
+          env:
+            - name: WORK_ITERATIONS
+              value: "3000000"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hybrid-demo-service
+  namespace: autoscaler-demo
+  labels:
+    app: hybrid-demo-app
+spec:
+  selector:
+    app: hybrid-demo-app
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http

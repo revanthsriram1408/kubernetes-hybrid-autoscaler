@@ -1,0 +1,6 @@
+-r app/requirements.txt
+locust==2.44.3
+matplotlib==3.10.6
+pandas==2.3.2
+requests==2.32.5
+httpx==0.28.1
