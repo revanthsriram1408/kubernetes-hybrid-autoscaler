@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+results/*.csv
+results/*.json
+results/*.png
+!results/.gitkeep
+*.tar
+.env
+*.key
+*.pem
+kubeconfig*
